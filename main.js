@@ -1,5 +1,9 @@
-// ========== FITUR KONTROL SUARA SPESIFIK PER PERANGKAT ==========
+// Sinkronisasi antar halaman
+window.addEventListener("storage", e => {
+  if (devices[e.key]) updateDashboard();
+});
 
+// ========== FITUR KONTROL SUARA SPESIFIK PER PERANGKAT ==========
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if ('SpeechRecognition' in window) {
@@ -7,7 +11,6 @@ if ('SpeechRecognition' in window) {
   recognition.lang = "id-ID";
   recognition.continuous = true;
 
-  // Tombol mikrofon
   const micButton = document.createElement("button");
   micButton.textContent = "🎙️ Aktifkan Suara";
   micButton.style.position = "fixed";
@@ -52,20 +55,21 @@ if ('SpeechRecognition' in window) {
       const btn = document.querySelector(`[data-device="${id}"]`);
       if (!btn) continue;
 
-      // Cocokkan nama perangkat (misal: "lampu ruang tamu", "ac kamar", dst)
-      const cleanName = dev.name.toLowerCase().replace("🏠", "").replace("🚗", "").replace("🛋️", "").trim();
+      const cleanName = dev.name.toLowerCase()
+        .replace(/[^\w\s]/gi, "")
+        .trim();
+
       if (command.includes(cleanName)) {
         const current = JSON.parse(localStorage.getItem(id)) || { status: "OFF" };
         const newStatus = action;
         if (current.status !== newStatus) {
-          btn.click(); // gunakan klik agar semua sinkron
+          btn.click();
           showNotification(`🎤 ${action === "ON" ? "Menyalakan" : "Mematikan"} ${dev.name}`);
         }
       }
     }
   }
 
-  // Notifikasi kecil di pojok bawah
   const notif = document.createElement("div");
   notif.className = "notification";
   document.body.appendChild(notif);
