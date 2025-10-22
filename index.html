@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏠 Smart Home Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌐 Smart Home Dashboard</h1>
+    <nav>
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="lamp.html">Lampu</a>
+      <a href="ac.html">AC</a>
+      <a href="tv.html">TV</a>
+      <a href="microwive.html">Microwave</a>
+      <a href="kullkas.html">Kulkas</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- STATUS RUMAH -->
+    <section class="overview">
+      <h2>📊 Status Rumah Saat Ini</h2>
+      <div id="summary" class="summary-box">
+        <p>💡 Lampu: <span id="lampSummary">-</span></p>
+        <p>❄️ AC: <span id="acSummary">-</span></p>
+        <p>📺 TV: <span id="tvSummary">-</span></p>
+        <p>🔥 Microwave: <span id="mwSummary">-</span></p>
+        <p>🥶 Kulkas: <span id="fridgeSummary">-</span></p>
+      </div>
+    </section>
+
+    <!-- MENU PERANGKAT -->
+    <section class="device-grid">
+      <a href="lamp.html" class="device-card link-card">
+        <h2>💡 Lampu</h2>
+        <p>Kendalikan semua lampu rumah — garasi, tamu, dan keluarga</p>
+      </a>
+
+      <a href="ac.html" class="device-card link-card">
+        <h2>❄️ AC</h2>
+        <p>Atur suhu dan hidup/matikan AC ruangan</p>
+      </a>
+
+      <a href="tv.html" class="device-card link-card">
+        <h2>📺 TV</h2>
+        <p>Hidupkan atau matikan TV keluarga</p>
+      </a>
+
+      <a href="microwIve.html" class="device-card link-card">
+        <h2>🔥 Microwave</h2>
+        <p>Kontrol microwave dapur & microwave mini</p>
+      </a>
+
+      <a href="kulkas.html" class="device-card link-card">
+        <h2>🥶 Kulkas</h2>
+        <p>Lihat status kulkas utama dan minibar</p>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>⚙️ Smart IoT System © 2025 | Dibuat dengan ❤️ oleh ChatGPT & Panskuy</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
